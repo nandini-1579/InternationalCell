@@ -65,7 +65,7 @@ nav.elevated{box-shadow:0 4px 24px rgba(21,151,187,.15);}
 
 .slide-img{position:absolute;inset:0;background-size:cover;background-position:center;opacity:.28;}
 .c-slide:nth-child(1) .slide-img{background-image:url('https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=1600&q=80');}
-.c-slide:nth-child(2) .slide-img{background-image:url('../static/bg2.png');}
+.c-slide:nth-child(2) .slide-img{background-image:url('../bg2.png');}
 .c-slide:nth-child(3) .slide-img{background-image:url('https://images.unsplash.com/photo-1497366216548-37526070297c?w=1600&q=80');}
 
 .slide-mesh{position:absolute;inset:0;background:
@@ -161,6 +161,15 @@ section{padding:88px 0;}
 .prog-meta-item{display:flex;align-items:center;gap:5px;font-size:.72rem;color:var(--sky-dk);font-weight:600;}
 .prog-link{display:inline-flex;align-items:center;gap:6px;font-size:.82rem;font-weight:700;color:var(--sky);text-decoration:none;transition:gap .2s;}
 .prog-link:hover{gap:10px;color:var(--sky-dk);}
+
+
+.how-sec{background:var(--off);}
+.steps-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:24px;margin-top:44px;}
+.step-card{text-align:center;padding:28px 20px;background:var(--white);border-radius:18px;border:1.5px solid var(--border);position:relative;}
+.step-num{width:48px;height:48px;background:linear-gradient(135deg,var(--sky),var(--sky-lt));border-radius:50%;display:grid;place-items:center;font-size:1.1rem;font-weight:800;color:#fff;margin:0 auto 14px;}
+.step-card h4{font-size:.92rem;font-weight:700;color:var(--dark);margin-bottom:6px;}
+.step-card p{font-size:.8rem;color:var(--gray);line-height:1.7;}
+
 
 /* ═══════════════════════════════════════
    DESTINATIONS — PROFESSIONAL PHOTO CARDS
@@ -801,87 +810,6 @@ footer{background:var(--dark);color:rgba(255,255,255,.6);}
   </div>
 </section>
 
-<!-- PROGRAMS -->
-<section class="programs-sec" id="programs">
-  <div class="max">
-    <div class="sec-head rev">
-      <div class="label">Events &amp; Programs</div>
-      <h2 class="heading">Our <span>Upcoming Programs</span></h2>
-      <p class="sub-copy">Workshops, fairs, and learning programs designed to give LBRCE students a head-start in their international education journey.</p>
-    </div>
-    <div class="prog-grid">
-
-      <!-- University Explore Fair -->
-      <div class="prog-card rev rev-delay-1">
-        <div class="prog-thumb">
-          <div class="prog-badge badge-orange">🏛️ Live Event</div>
-        </div>
-        <div class="prog-body">
-          <h3>University Explore Fair 2025</h3>
-          <p>Meet admission officers from 30+ global universities on the LBRCE campus. Get on-spot pre-admission letters, scholarship info, and direct counselling.</p>
-          <div class="prog-meta">
-            <div class="prog-meta-item">📅 July 20, 2025</div>
-            <div class="prog-meta-item">📍 LBRCE Auditorium</div>
-            <div class="prog-meta-item">🆓 Free Entry</div>
-          </div>
-          <a href="register.html" class="prog-link">Register for Fair →</a>
-        </div>
-      </div>
-
-      <!-- IELTS Free Learning -->
-      <div class="prog-card rev rev-delay-2">
-        <div class="prog-thumb">
-          <div class="prog-badge badge-blue">📚 Free Program</div>
-        </div>
-        <div class="prog-body">
-          <h3>IELTS Free Learning Batch</h3>
-          <p>Complimentary IELTS coaching covering all four modules — Listening, Reading, Writing, and Speaking — with certified trainers and 12 full-length mock tests.</p>
-          <div class="prog-meta">
-            <div class="prog-meta-item">📅 Batch: July 10</div>
-            <div class="prog-meta-item">⏱️ 6 Weeks</div>
-            <div class="prog-meta-item">🆓 No Cost</div>
-          </div>
-          <a href="register.html" class="prog-link">Enroll Now →</a>
-        </div>
-      </div>
-
-      <!-- SOP & LOR Workshop -->
-      <div class="prog-card rev rev-delay-3">
-        <div class="prog-thumb">
-          <div class="prog-badge badge-green">✍️ Workshop</div>
-        </div>
-        <div class="prog-body">
-          <h3>SOP &amp; LOR Writing Workshop</h3>
-          <p>Intensive 2-day workshop on crafting compelling Statements of Purpose and Letters of Recommendation that get noticed by top university admission committees worldwide.</p>
-          <div class="prog-meta">
-            <div class="prog-meta-item">📅 Aug 3–4, 2025</div>
-            <div class="prog-meta-item">⏱️ 2 Days</div>
-            <div class="prog-meta-item">🎟️ Limited Seats</div>
-          </div>
-          <a href="register.html" class="prog-link">Book a Seat →</a>
-        </div>
-      </div>
-
-      <!-- Scholarship Masterclass -->
-      <div class="prog-card rev rev-delay-4">
-        <div class="prog-thumb">
-          <div class="prog-badge badge-purple">💡 Masterclass</div>
-        </div>
-        <div class="prog-body">
-          <h3>Scholarship Hunt Masterclass</h3>
-          <p>Learn how to identify, apply, and win scholarships, assistantships, and funding from universities in the USA, Canada, UK, and Australia — with real case studies from LBRCE alumni.</p>
-          <div class="prog-meta">
-            <div class="prog-meta-item">📅 Aug 17, 2025</div>
-            <div class="prog-meta-item">⏱️ 1 Day</div>
-            <div class="prog-meta-item">🆓 Free</div>
-          </div>
-          <a href="register.html" class="prog-link">Reserve Spot →</a>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
 
 <!-- READY TO BEGIN -->
 <div class="sub-strip" id="contact">
