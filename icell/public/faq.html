@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>FAQ — LBRCE International Cell</title>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Lora:ital,wght@0,500;0,600;0,700;1,500&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+:root{
+  --sky:#1597bb;--sky-lt:#2ebfdf;--sky-dk:#0d6e85;--sky-pale:#e8f8fc;--sky-pale2:#d0f0f8;
+  --white:#ffffff;--off:#f7fcfe;--orange:#f79236;--orange-lt:#fba856;
+  --dark:#0f2a33;--gray:#5a7a85;--border:#cce8f0;
+}
+html{scroll-behavior:smooth;}
+body{font-family:'Sora',sans-serif;color:var(--dark);background:var(--white);overflow-x:hidden;line-height:1.6;}
+.topbar{background:var(--sky-dk);padding:8px 0;font-size:.75rem;color:rgba(255,255,255,.8);}
+.topbar .inner{max-width:1240px;margin:auto;padding:0 24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;}
+.topbar a{color:rgba(255,255,255,.85);text-decoration:none;}
+.top-links{display:flex;gap:20px;}
+nav{background:var(--white);box-shadow:0 1px 0 var(--border);position:sticky;top:0;z-index:100;}
+nav.elevated{box-shadow:0 4px 24px rgba(21,151,187,.15);}
+.nav-inner{max-width:1240px;margin:auto;padding:0 24px;height:68px;display:flex;align-items:center;justify-content:space-between;}
+.logo{display:flex;align-items:center;gap:12px;text-decoration:none;}
+.logo-mark{width:44px;height:44px;background:linear-gradient(135deg,var(--sky),var(--sky-lt));border-radius:12px;display:grid;place-items:center;flex-shrink:0;}
+.logo-mark svg{width:22px;height:22px;fill:none;stroke:#fff;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;}
+.logo-words .top{font-size:.62rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--sky);line-height:1;}
+.logo-words .bottom{font-family:'Lora',serif;font-size:1rem;font-weight:600;color:var(--dark);line-height:1.2;margin-top:2px;}
+.nav-menu{display:flex;align-items:center;gap:2px;}
+.nav-menu a{text-decoration:none;font-size:.84rem;font-weight:500;color:var(--dark);padding:8px 14px;border-radius:8px;transition:all .2s;}
+.nav-menu a:hover,.nav-menu a.act{color:var(--sky);background:var(--sky-pale);}
+.nav-cta{background:var(--sky)!important;color:#fff!important;border-radius:10px!important;padding:9px 22px!important;font-weight:600!important;}
+
+/* PAGE HERO */
+.page-hero{background:linear-gradient(135deg,#0a1628,#0d3a5c,#0d6e85);padding:96px 0 80px;position:relative;overflow:hidden;}
+.page-hero::before{content:'';position:absolute;inset:0;background-image:radial-gradient(circle,rgba(255,255,255,.05) 1px,transparent 1px);background-size:32px 32px;}
+.page-hero-inner{max-width:1240px;margin:auto;padding:0 24px;position:relative;z-index:2;}
+.page-hero .pill{display:inline-flex;align-items:center;gap:8px;background:rgba(21,151,187,.2);border:1px solid rgba(21,151,187,.4);color:var(--sky-lt);font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:6px 16px;border-radius:100px;margin-bottom:18px;}
+.page-hero h1{font-family:'Lora',serif;font-size:clamp(2rem,4vw,3.2rem);font-weight:700;color:#fff;line-height:1.15;margin-bottom:16px;}
+.page-hero h1 em{font-style:normal;color:var(--sky-lt);}
+.page-hero p{font-size:1rem;color:rgba(255,255,255,.65);max-width:560px;line-height:1.8;}
+.breadcrumb{display:flex;align-items:center;gap:8px;font-size:.75rem;color:rgba(255,255,255,.45);margin-top:24px;}
+.breadcrumb a{color:rgba(255,255,255,.6);text-decoration:none;}
+.breadcrumb span{color:rgba(255,255,255,.25);}
+
+/* LAYOUT */
+section{padding:80px 0;}
+.max{max-width:1240px;margin:auto;padding:0 24px;}
+.label{font-size:.68rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--sky);margin-bottom:8px;}
+.heading{font-family:'Lora',serif;font-size:clamp(1.7rem,2.8vw,2.4rem);font-weight:700;color:var(--dark);line-height:1.2;}
+.heading span{color:var(--sky);}
+
+/* FAQ TABS */
+.faq-layout{display:grid;grid-template-columns:240px 1fr;gap:40px;margin-top:48px;}
+@media(max-width:768px){.faq-layout{grid-template-columns:1fr;}}
+.faq-tabs{display:flex;flex-direction:column;gap:8px;}
+.faq-tab{padding:11px 16px;border-radius:10px;font-size:.84rem;font-weight:600;color:var(--gray);cursor:pointer;transition:all .2s;border:1.5px solid transparent;text-align:left;background:none;}
+.faq-tab.active,.faq-tab:hover{background:var(--sky-pale);color:var(--sky);border-color:rgba(21,151,187,.2);}
+.faq-panel{display:none;}
+.faq-panel.active{display:block;}
+
+/* ACCORDION */
+.faq-item{border:1.5px solid var(--border);border-radius:14px;margin-bottom:12px;overflow:hidden;transition:border-color .2s;}
+.faq-item.open{border-color:rgba(21,151,187,.35);}
+.faq-q{width:100%;display:flex;justify-content:space-between;align-items:center;padding:18px 22px;background:none;border:none;font-family:'Sora',sans-serif;font-size:.9rem;font-weight:600;color:var(--dark);cursor:pointer;text-align:left;gap:12px;transition:background .2s;}
+.faq-q:hover{background:var(--sky-pale);}
+.faq-item.open .faq-q{background:var(--sky-pale);color:var(--sky);}
+.faq-arrow{width:28px;height:28px;border-radius:50%;background:var(--border);display:grid;place-items:center;font-size:.7rem;flex-shrink:0;transition:transform .3s,background .2s;}
+.faq-item.open .faq-arrow{transform:rotate(180deg);background:var(--sky);color:#fff;}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .35s ease,padding .3s;}
+.faq-a-inner{padding:0 22px 18px;font-size:.86rem;color:var(--gray);line-height:1.8;}
+.faq-item.open .faq-a{max-height:300px;}
+
+/* CONTACT CALLOUT */
+.contact-callout{background:var(--sky-pale);border:1.5px solid var(--border);border-radius:18px;padding:36px;text-align:center;margin-top:32px;}
+.contact-callout h3{font-family:'Lora',serif;font-size:1.2rem;color:var(--dark);margin-bottom:8px;}
+.contact-callout p{font-size:.85rem;color:var(--gray);margin-bottom:20px;}
+.btn-sky{background:var(--sky);color:#fff;font-weight:600;font-size:.9rem;padding:12px 26px;border-radius:10px;text-decoration:none;display:inline-block;transition:all .2s;}
+.btn-sky:hover{background:var(--sky-lt);transform:translateY(-2px);}
+
+/* CTA */
+.cta-strip{background:linear-gradient(135deg,var(--sky-dk),var(--sky),var(--sky-lt));padding:80px 0;text-align:center;}
+.cta-strip h2{font-family:'Lora',serif;font-size:clamp(1.8rem,3vw,2.6rem);color:#fff;font-weight:700;margin-bottom:12px;}
+.cta-strip p{color:rgba(255,255,255,.72);font-size:.95rem;max-width:480px;margin:0 auto 32px;}
+.cta-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;}
+.btn-white{background:#fff;color:var(--sky-dk);font-weight:700;font-size:.92rem;padding:13px 30px;border-radius:10px;text-decoration:none;display:inline-block;}
+.btn-outline-white{color:#fff;font-weight:600;font-size:.92rem;padding:13px 30px;border-radius:10px;border:1.5px solid rgba(255,255,255,.4);background:rgba(255,255,255,.08);text-decoration:none;display:inline-block;}
+
+/* FOOTER */
+footer{background:var(--dark);color:rgba(255,255,255,.6);}
+.footer-top{padding:64px 0 48px;}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:44px;}
+@media(max-width:768px){.footer-grid{grid-template-columns:1fr 1fr;}}
+.footer-brand p{font-size:.84rem;line-height:1.8;margin-top:14px;max-width:270px;}
+.foot-logo{display:flex;align-items:center;gap:10px;}
+.foot-logo-icon{width:38px;height:38px;background:var(--sky);border-radius:9px;display:grid;place-items:center;}
+.foot-logo-icon svg{width:18px;height:18px;fill:none;stroke:#fff;stroke-width:2.2;}
+.foot-logo-text{font-family:'Lora',serif;font-size:.9rem;font-weight:700;color:#fff;}
+.foot-col h5{font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.85);margin-bottom:16px;}
+.foot-col ul{list-style:none;}
+.foot-col ul li{margin-bottom:9px;}
+.foot-col ul li a{font-size:.82rem;color:rgba(255,255,255,.5);text-decoration:none;transition:color .2s;}
+.foot-col ul li a:hover{color:var(--sky-lt);}
+.socials{display:flex;gap:9px;margin-top:18px;}
+.socials a{width:34px;height:34px;border-radius:8px;background:rgba(255,255,255,.06);display:grid;place-items:center;color:rgba(255,255,255,.5);text-decoration:none;font-size:.8rem;font-weight:700;}
+.socials a:hover{background:var(--sky);color:#fff;}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.08);padding:20px 0;}
+.foot-bottom-inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;font-size:.75rem;}
+.rev{opacity:0;transform:translateY(26px);transition:opacity .7s,transform .7s;}
+.rev.vis{opacity:1;transform:translateY(0);}
+
+/* ══════════════════════════════════════════
+   HAMBURGER BUTTON
+══════════════════════════════════════════ */
+.hamburger{display:none;flex-direction:column;justify-content:center;gap:5px;
+  width:40px;height:40px;background:none;border:none;cursor:pointer;padding:4px;
+  border-radius:8px;transition:background .2s;}
+.hamburger:hover{background:var(--sky-pale);}
+.hamburger span{display:block;height:2.5px;border-radius:2px;background:var(--dark);
+  transition:transform .3s,opacity .3s,width .3s;}
+.hamburger span:nth-child(2){width:70%;}
+.hamburger.open span:nth-child(1){transform:translateY(7.5px) rotate(45deg);}
+.hamburger.open span:nth-child(2){opacity:0;width:0;}
+.hamburger.open span:nth-child(3){transform:translateY(-7.5px) rotate(-45deg);}
+
+/* ══════════════════════════════════════════
+   MOBILE DRAWER
+══════════════════════════════════════════ */
+.mobile-nav{display:none;flex-direction:column;gap:4px;
+  background:var(--white);padding:16px 20px 20px;
+  border-top:1px solid var(--border);
+  box-shadow:0 8px 24px rgba(21,151,187,.08);}
+.mobile-nav a{font-size:.9rem;font-weight:500;color:var(--dark);
+  padding:10px 14px;border-radius:10px;text-decoration:none;transition:all .2s;}
+.mobile-nav a:hover,.mobile-nav a.act{color:var(--sky);background:var(--sky-pale);}
+.mobile-nav .nav-cta{background:var(--sky)!important;color:#fff!important;
+  text-align:center;margin-top:6px;font-weight:700!important;
+  box-shadow:0 4px 14px rgba(21,151,187,.3);}
+.mobile-nav.open{display:flex;}
+
+/* ══════════════════════════════════════════
+   BREAKPOINT <= 960px (tablet)
+══════════════════════════════════════════ */
+@media(max-width:960px){
+  .topbar .inner{flex-direction:column;align-items:flex-start;gap:4px;padding:8px 16px;}
+  .mission-grid{grid-template-columns:1fr;}
+  .stats-grid{grid-template-columns:repeat(2,1fr);}
+  .footer-grid{grid-template-columns:1fr 1fr;gap:32px;}
+}
+
+/* ══════════════════════════════════════════
+   BREAKPOINT <= 768px (mobile)
+══════════════════════════════════════════ */
+@media(max-width:768px){
+  section{padding:52px 0;}
+  .nav-menu{display:none;}
+  .hamburger{display:flex;}
+  .topbar{font-size:.7rem;}
+  .top-links{flex-wrap:wrap;gap:10px;}
+  .page-hero{padding:60px 0 44px;}
+  /* faq: stack sidebar tabs above content */
+  .faq-layout{grid-template-columns:1fr;gap:24px;}
+  .faq-tabs{flex-direction:row;flex-wrap:wrap;gap:8px;}
+  .faq-tab{padding:8px 14px;font-size:.8rem;}
+  /* about */
+  .mission-grid{grid-template-columns:1fr;}
+  .mission-img{height:260px;}
+  .stats-grid{grid-template-columns:1fr 1fr;gap:20px;}
+  .stats-sec{padding:48px 0;}
+  .team-grid{grid-template-columns:1fr 1fr;}
+  .values-grid{grid-template-columns:1fr 1fr;}
+  /* shared */
+  .cta-btns{flex-direction:column;align-items:center;}
+  .footer-grid{grid-template-columns:1fr;}
+  .footer-top{padding:36px 0 28px;}
+  .footer-brand p{max-width:100%;}
+  .foot-bottom-inner{flex-direction:column;text-align:center;gap:6px;}
+  /* contact callout buttons */
+  .contact-callout div[style]{flex-direction:column!important;align-items:center;}
+}
+
+/* ══════════════════════════════════════════
+   BREAKPOINT <= 480px (small phone)
+══════════════════════════════════════════ */
+@media(max-width:480px){
+  .topbar .inner>span:first-child{display:none;}
+  .nav-inner{height:58px;}
+  .logo-words .bottom{font-size:.88rem;}
+  .page-hero h1{font-size:clamp(1.7rem,8vw,2.2rem);}
+  .heading{font-size:1.5rem;}
+  .sub-copy{font-size:.85rem;}
+  /* faq: full-width tab pills */
+  .faq-tabs{gap:6px;}
+  .faq-tab{flex:1;min-width:calc(50% - 6px);text-align:center;}
+  .faq-q{font-size:.83rem;padding:14px 16px;}
+  /* about: single col grids */
+  .team-grid{grid-template-columns:1fr;}
+  .values-grid{grid-template-columns:1fr;}
+  .stats-grid{grid-template-columns:1fr 1fr;gap:16px;}
+  .stat-box .n{font-size:2rem;}
+  .mission-img{height:200px;}
+}
+
+</style>
+</head>
+<body>
+
+<div class="topbar"><div class="inner">
+  <span>🎓 Lakireddy Bali Reddy College of Engineering (LBRCE), Mylavaram, Andhra Pradesh</span>
+  <div class="top-links"><span>✉ <a href="mailto:international@lbrce.ac.in">international@lbrce.ac.in</a></span><span>📞 <a href="tel:+918645220002">+91 86452 20002</a></span></div>
+</div></div>
+
+<nav id="mainNav">
+  <div class="nav-inner">
+    <a href="index.html" class="logo">
+      <div class="logo-mark"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg></div>
+      <div class="logo-words"><div class="top">LBRCE</div><div class="bottom">International Cell</div></div>
+    </a>
+    <nav class="nav-menu">
+      <a href="index.html">Home</a>
+      <a href="programs.html">Programs</a>
+      <a href="test-prep.html">Test Prep</a>
+      <a href="about.html">About</a>
+      <a href="faq.html" class="act">FAQ</a>
+      <a href="register.html" class="nav-cta">Register Now</a>
+    </nav>
+
+    <!-- Hamburger (mobile only) -->
+    <button class="hamburger" id="hamburgerBtn" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <!-- Mobile drawer -->
+  <div class="mobile-nav" id="mobileNav">
+    <a href="index.html">Home</a>
+    <a href="programs.html">Programs</a>
+    <a href="test-prep.html">Test Prep</a>
+    <a href="about.html">About</a>
+    <a href="faq.html" class="act">FAQ</a>
+    <a href="register.html" class="nav-cta">Register Now</a>
+  </div>
+</nav>
+
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <div class="pill">✦ &nbsp;FAQ</div>
+    <h1>Frequently Asked <em>Questions</em></h1>
+    <p>Everything you need to know about studying abroad, our programs, IELTS coaching, scholarships, and more — answered clearly.</p>
+    <div class="breadcrumb"><a href="index.html">Home</a><span>/</span><span>FAQ</span></div>
+  </div>
+</div>
+
+<section>
+  <div class="max">
+    <div class="label rev">Got Questions?</div>
+    <h2 class="heading rev">We've Got <span>Answers</span></h2>
+    <div class="faq-layout">
+      <!-- Tabs -->
+      <div class="faq-tabs rev">
+        <button class="faq-tab active" onclick="showTab('general',this)">🌐 General</button>
+        <button class="faq-tab" onclick="showTab('programs',this)">📚 Programs</button>
+        <button class="faq-tab" onclick="showTab('ielts',this)">✏️ IELTS & Tests</button>
+        <button class="faq-tab" onclick="showTab('visa',this)">🛂 Visa & Docs</button>
+        <button class="faq-tab" onclick="showTab('scholarship',this)">🎓 Scholarships</button>
+        <button class="faq-tab" onclick="showTab('register',this)">📋 Registration</button>
+      </div>
+
+      <!-- Panels -->
+      <div>
+        <!-- GENERAL -->
+        <div class="faq-panel active" id="panel-general">
+          <div class="faq-item"><button class="faq-q" onclick="toggleFAQ(this)">Who is the LBRCE International Cell for? <span class="faq-arrow">▼</span></button><div class="faq-a"><div class="faq-a-inner">The International Cell is exclusively for students currently enrolled at LBRCE — Lakireddy Bali Reddy College of Engineering, Mylavaram. All services including counselling, IELTS coaching, and visa guidance are free for LBRCE students.</div></div></div>
+          <div class="faq-item"><button class="faq-q" onclick="toggleFAQ(this)">Is there any fee for using International Cell services? <span class="faq-arrow">▼</span></button><div class="faq-a"><div class="faq-a-inner">No. All services offered by the LBRCE International Cell — including one-on-one counselling, IELTS coaching, SOP reviews, scholarship guidance, and mock interviews — are completely free for all LBRCE students.</div></div></div>
+          <div class="faq-item"><button class="faq-q" onclick="toggleFAQ(this)">When should I start the process of applying abroad? <span class="faq-arrow">▼</span></button><div class="faq-a"><div class="faq-a-inner">We recommend starting at least 12–18 months before your intended intake. This allows enough time for test preparation (IELTS/TOEFL/GRE), university research, application, document collection, and visa processing.</div></div></div>
+          <div class="faq-item"><button class="faq-q" onclick="toggleFAQ(this)">Can I apply while still in my final year of engineering? <span class="faq-arrow">▼</span></button><div class="faq-a"><div class="faq-a-inner">Absolutely. Many students apply during their 3rd or 4th year and receive conditional admission offers. You can submit provisional transcripts and complete full documentation after graduation.</div></div></div>
+        </div>
+
+        <!-- PROGRAMS -->
+        <div class="faq-panel" id="panel-programs">
+          <div class="faq-item"><button class="faq-q" onclick="toggleFAQ(this)">What is the University Explore Program? <span class="faq-arrow">▼</span></button><div class="faq-a"><div class="faq-a-inner">The University Explore Program helps students identify the right universities based on their GPA, test scores, career goals, and budget. It includes shortlisting, profile evaluation, and personalised counselling sessions with our experts.</div></div></div>
+          <div class="faq-item"><button class="faq-q" onclick="toggleFAQ(this)">How many programs can I register for simultaneously? <span class="faq-arrow">▼</span></button><div class="faq-a"><div class="faq-a-inner">You can register for multiple programs. For example, you can enrol in the IELTS coaching program while simultaneously working on university shortlisting through the University Explore Program.</div></div></div>
+          <div class="faq-item"><button class="faq-q" onclick="toggleFAQ(this)">What countries do your programs cover? <span class="faq-arrow">▼</span></button><div class="faq-a"><div class="faq-a-inner">We cover 15+ countries including the USA, Canada, UK, Australia, Germany, Netherlands, Ireland, New Zealand, Singapore, and more. Our counsellors have specialized expertise in each destination.</div></div></div>
+        </div>
+
+        <!-- IELTS -->
+        <div class="faq-panel" id="panel-ielts">
+          <div class="faq-item"><button class="faq-q" onclick="toggleFAQ(this)">Is IELTS coaching truly free? <span class="faq-arrow">▼</span></button><div class="faq-a"><div class="faq-a-inner">Yes, 100% free for all LBRCE students. The IELTS coaching program covers all four modules — Listening, Reading, Writing, and Speaking — and includes 12 full-length mock tests and one-on-one feedback sessions.</div></div></div>
+          <div class="faq-item"><button class="faq-q" onclick="toggleFAQ(this)">How long is the IELTS coaching program? <span class="faq-arrow">▼</span></button><div class="faq-a"><div class="faq-a-inner">The standard program runs for 8 weeks with 3 sessions per week. Intensive 4-week crash courses are also available for students with upcoming exam dates.</div></div></div>
+          <div class="faq-item"><button class="faq-q" onclick="toggleFAQ(this)">Do you offer GRE or GMAT coaching? <span class="faq-arrow">▼</span></button><div class="faq-a"><div class="faq-a-inner">Yes, we offer GRE and GMAT preparation workshops. These are conducted as 6-week modules with study materials, practice tests, and expert guidance from our test prep team.</div></div></div>
+          <div class="faq-item"><button class="faq-q" onclick="toggleFAQ(this)">What is the minimum IELTS score required for universities abroad? <span class="faq-arrow">▼</span></button><div class="faq-a"><div class="faq-a-inner">Requirements vary by country and university. Generally, USA and Australia require a minimum of 6.5 overall, UK requires 6.0–7.0, and Canada requires 6.5–7.0. Our counsellors provide destination-specific guidance.</div></div></div>
+        </div>
+
+        <!-- VISA -->
+        <div class="faq-panel" id="panel-visa">
+          <div class="faq-item"><button class="faq-q" onclick="toggleFAQ(this)">What documents are typically required for a student visa? <span class="faq-arrow">▼</span></button><div class="faq-a"><div class="faq-a-inner">Standard documents include: valid passport, university acceptance letter, financial proof (bank statements/sponsorship), IELTS/TOEFL scorecard, academic transcripts, Statement of Purpose, and visa application form. Our team provides a country-specific checklist at your counselling session.</div></div></div>
+          <div class="faq-item"><button class="faq-q" onclick="toggleFAQ(this)">How long does visa processing typically take? <span class="faq-arrow">▼</span></button><div class="faq-a"><div class="faq-a-inner">Processing times vary: USA (F-1) – 4–8 weeks, Canada – 4–12 weeks, UK – 3–4 weeks, Australia – 4–6 weeks. We recommend applying at least 3 months before your program start date.</div></div></div>
+          <div class="faq-item"><button class="faq-q" onclick="toggleFAQ(this)">What is your visa success rate? <span class="faq-arrow">▼</span></button><div class="faq-a"><div class="faq-a-inner">We maintain a 98% visa success rate across all countries, achieved by thorough document review, SOP guidance, and mock visa interviews conducted before students submit their applications.</div></div></div>
+        </div>
+
+        <!-- SCHOLARSHIP -->
+        <div class="faq-panel" id="panel-scholarship">
+          <div class="faq-item"><button class="faq-q" onclick="toggleFAQ(this)">Can I get scholarships to study abroad? <span class="faq-arrow">▼</span></button><div class="faq-a"><div class="faq-a-inner">Yes! Many universities offer merit-based scholarships for international students. We also guide students toward government scholarships like Fulbright, Commonwealth, DAAD, and Chevening, as well as university-specific grants and assistantships.</div></div></div>
+          <div class="faq-item"><button class="faq-q" onclick="toggleFAQ(this)">What GPA is typically required to qualify for scholarships? <span class="faq-arrow">▼</span></button><div class="faq-a"><div class="faq-a-inner">Most merit scholarships require a GPA of 8.0+ (on a 10-point scale) or equivalent. Research assistantships are more accessible and often accompany MS admissions at research-focused universities.</div></div></div>
+          <div class="faq-item"><button class="faq-q" onclick="toggleFAQ(this)">Do you help with the scholarship application process? <span class="faq-arrow">▼</span></button><div class="faq-a"><div class="faq-a-inner">Yes. Our team assists with identifying scholarship opportunities, writing scholarship essays, preparing recommendation letters, and meeting all application deadlines. This service is free for all LBRCE students.</div></div></div>
+        </div>
+
+        <!-- REGISTER -->
+        <div class="faq-panel" id="panel-register">
+          <div class="faq-item"><button class="faq-q" onclick="toggleFAQ(this)">How do I register with the International Cell? <span class="faq-arrow">▼</span></button><div class="faq-a"><div class="faq-a-inner">Simply click "Register Now" on this website and fill out the registration form with your name, student ID, program of interest, and contact details. Our team will reach out within 2 working days to schedule your first session.</div></div></div>
+          <div class="faq-item"><button class="faq-q" onclick="toggleFAQ(this)">Is registration mandatory to use International Cell services? <span class="faq-arrow">▼</span></button><div class="faq-a"><div class="faq-a-inner">Yes, a one-time registration helps us understand your goals and match you with the right counsellor and programs. It also lets us keep you updated on workshops, deadlines, and scholarship openings.</div></div></div>
+          <div class="faq-item"><button class="faq-q" onclick="toggleFAQ(this)">Can I cancel or reschedule a counselling appointment? <span class="faq-arrow">▼</span></button><div class="faq-a"><div class="faq-a-inner">Yes. Please inform us at least 24 hours in advance via email or phone. We'll reschedule you to the next available slot without any penalty.</div></div></div>
+        </div>
+
+        <div class="contact-callout rev">
+          <h3>Still Have Questions?</h3>
+          <p>Our counsellors are available Mon–Sat, 9 AM to 6 PM. Reach out and we'll get back to you within 24 hours.</p>
+          <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
+            <a href="register.html" class="btn-sky">📋 Book Free Session</a>
+            <a href="mailto:international@lbrce.ac.in" class="btn-sky" style="background:var(--orange);">✉ Email Us</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="cta-strip">
+  <div class="max">
+    <h2>Ready to Take the Next Step?</h2>
+    <p>Register today and get matched with a counsellor who'll guide you every step of the way.</p>
+    <div class="cta-btns"><a href="register.html" class="btn-white">📋 Register Now</a><a href="tel:+918645220002" class="btn-outline-white">📞 Call Us</a></div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-top"><div class="max"><div class="footer-grid">
+    <div class="footer-brand"><div class="foot-logo"><div class="foot-logo-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg></div><div class="foot-logo-text">LBRCE International Cell</div></div><p>Empowering students with global education opportunities and end-to-end guidance.</p><div class="socials"><a href="#">in</a><a href="#">fb</a><a href="#">yt</a><a href="#">ig</a></div></div>
+    <div class="foot-col"><h5>Pages</h5><ul><li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="programs.html">Programs</a></li><li><a href="test-prep.html">Test Prep</a></li><li><a href="faq.html">FAQ</a></li></ul></div>
+    <div class="foot-col"><h5>Destinations</h5><ul><li><a href="#">USA</a></li><li><a href="#">Canada</a></li><li><a href="#">UK</a></li><li><a href="#">Australia</a></li><li><a href="#">Europe</a></li></ul></div>
+    <div class="foot-col"><h5>Contact</h5><ul><li><a href="#">LBRCE Campus, Mylavaram</a></li><li><a href="tel:+918645220002">+91 86452 20002</a></li><li><a href="mailto:international@lbrce.ac.in">international@lbrce.ac.in</a></li></ul></div>
+  </div></div></div>
+  <div class="footer-bottom"><div class="max foot-bottom-inner"><span>© 2025 LBRCE International Cell. All rights reserved.</span><span>Lakireddy Bali Reddy College of Engineering, Mylavaram, AP</span></div></div>
+</footer>
+
+<script>
+const nav = document.getElementById('mainNav');
+window.addEventListener('scroll', () => nav.classList.toggle('elevated', scrollY > 60));
+const revItems = document.querySelectorAll('.rev');
+const io = new IntersectionObserver(e => e.forEach(x => { if(x.isIntersecting){x.target.classList.add('vis');io.unobserve(x.target);}}),{threshold:0.1});
+revItems.forEach(el => io.observe(el));
+
+function showTab(id, btn) {
+  document.querySelectorAll('.faq-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.faq-tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('panel-' + id).classList.add('active');
+  btn.classList.add('active');
+}
+
+function toggleFAQ(btn) {
+  const item = btn.parentElement;
+  const isOpen = item.classList.contains('open');
+  // close all in this panel
+  item.closest('.faq-panel').querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+  if (!isOpen) item.classList.add('open');
+}
+</script>
+</body>
+</html>

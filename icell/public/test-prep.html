@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Test Prep — LBRCE International Cell</title>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Lora:ital,wght@0,500;0,600;0,700;1,500&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+:root{
+  --sky:#1597bb;--sky-lt:#2ebfdf;--sky-dk:#0d6e85;--sky-pale:#e8f8fc;--sky-pale2:#d0f0f8;
+  --white:#ffffff;--off:#f7fcfe;--orange:#f79236;--orange-lt:#fba856;
+  --dark:#0f2a33;--gray:#5a7a85;--border:#cce8f0;
+}
+html{scroll-behavior:smooth;}
+body{font-family:'Sora',sans-serif;color:var(--dark);background:var(--white);overflow-x:hidden;line-height:1.6;}
+.topbar{background:var(--sky-dk);padding:8px 0;font-size:.75rem;color:rgba(255,255,255,.8);}
+.topbar .inner{max-width:1240px;margin:auto;padding:0 24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;}
+.topbar a{color:rgba(255,255,255,.85);text-decoration:none;}
+.top-links{display:flex;gap:20px;}
+nav{background:var(--white);box-shadow:0 1px 0 var(--border);position:sticky;top:0;z-index:100;}
+nav.elevated{box-shadow:0 4px 24px rgba(21,151,187,.15);}
+.nav-inner{max-width:1240px;margin:auto;padding:0 24px;height:68px;display:flex;align-items:center;justify-content:space-between;}
+.logo{display:flex;align-items:center;gap:12px;text-decoration:none;}
+.logo-mark{width:44px;height:44px;background:linear-gradient(135deg,var(--sky),var(--sky-lt));border-radius:12px;display:grid;place-items:center;flex-shrink:0;}
+.logo-mark svg{width:22px;height:22px;fill:none;stroke:#fff;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;}
+.logo-words .top{font-size:.62rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--sky);line-height:1;}
+.logo-words .bottom{font-family:'Lora',serif;font-size:1rem;font-weight:600;color:var(--dark);line-height:1.2;margin-top:2px;}
+.nav-menu{display:flex;align-items:center;gap:2px;}
+.nav-menu a{text-decoration:none;font-size:.84rem;font-weight:500;color:var(--dark);padding:8px 14px;border-radius:8px;transition:all .2s;}
+.nav-menu a:hover,.nav-menu a.act{color:var(--sky);background:var(--sky-pale);}
+.nav-cta{background:var(--sky)!important;color:#fff!important;border-radius:10px!important;padding:9px 22px!important;font-weight:600!important;}
+
+/* PAGE HERO */
+.page-hero{background:linear-gradient(135deg,#0a1c0a,#0d3a1a,#1a5c2a);padding:96px 0 80px;position:relative;overflow:hidden;}
+.page-hero::before{content:'';position:absolute;inset:0;background-image:radial-gradient(circle,rgba(255,255,255,.05) 1px,transparent 1px);background-size:32px 32px;}
+.page-hero-inner{max-width:1240px;margin:auto;padding:0 24px;position:relative;z-index:2;}
+.page-hero .pill{display:inline-flex;align-items:center;background:rgba(26,140,78,.25);border:1px solid rgba(26,140,78,.4);color:#5ae88a;font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:6px 16px;border-radius:100px;margin-bottom:18px;}
+.page-hero h1{font-family:'Lora',serif;font-size:clamp(2rem,4vw,3.2rem);font-weight:700;color:#fff;line-height:1.15;margin-bottom:16px;}
+.page-hero h1 em{font-style:normal;color:#5ae88a;}
+.page-hero p{font-size:1rem;color:rgba(255,255,255,.65);max-width:560px;line-height:1.8;}
+.breadcrumb{display:flex;align-items:center;gap:8px;font-size:.75rem;color:rgba(255,255,255,.45);margin-top:24px;}
+.breadcrumb a{color:rgba(255,255,255,.6);text-decoration:none;}
+.breadcrumb span{color:rgba(255,255,255,.25);}
+
+section{padding:80px 0;}
+.max{max-width:1240px;margin:auto;padding:0 24px;}
+.label{font-size:.68rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--sky);margin-bottom:8px;}
+.heading{font-family:'Lora',serif;font-size:clamp(1.7rem,2.8vw,2.4rem);font-weight:700;color:var(--dark);line-height:1.2;}
+.heading span{color:var(--sky);}
+.sub-copy{font-size:.95rem;color:var(--gray);line-height:1.8;max-width:580px;margin-top:12px;}
+
+/* EXAM CARDS */
+.exam-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px;margin-top:48px;}
+.exam-card{background:var(--white);border:1.5px solid var(--border);border-radius:20px;overflow:hidden;transition:all .3s;position:relative;}
+.exam-card:hover{transform:translateY(-6px);box-shadow:0 16px 44px rgba(21,151,187,.14);border-color:rgba(21,151,187,.3);}
+.exam-thumb{height:160px;background-size:cover;background-position:center;position:relative;display:flex;align-items:flex-end;padding:16px;}
+.exam-thumb-overlay{position:absolute;inset:0;}
+.exam-badge{position:relative;z-index:1;display:inline-block;padding:5px 14px;border-radius:100px;font-size:.65rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;}
+.badge-blue{background:var(--sky);color:#fff;}
+.badge-orange{background:var(--orange);color:#fff;}
+.badge-green{background:#1a8c4e;color:#fff;}
+.badge-purple{background:#6c3fc5;color:#fff;}
+.badge-red{background:#c53f3f;color:#fff;}
+.exam-body{padding:22px;}
+.exam-body h3{font-family:'Lora',serif;font-size:1.1rem;font-weight:700;color:var(--dark);margin-bottom:6px;}
+.exam-body p{font-size:.83rem;color:var(--gray);line-height:1.75;margin-bottom:16px;}
+.exam-meta{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:18px;}
+.exam-meta-item{display:flex;align-items:center;gap:5px;font-size:.72rem;color:var(--sky-dk);font-weight:600;background:var(--sky-pale);padding:5px 10px;border-radius:6px;}
+.exam-highlights{list-style:none;margin-bottom:20px;}
+.exam-highlights li{font-size:.82rem;color:var(--gray);padding:5px 0;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:8px;}
+.exam-highlights li:last-child{border-bottom:none;}
+.exam-highlights li::before{content:'✓';color:var(--sky);font-weight:700;flex-shrink:0;}
+.btn-register{display:block;text-align:center;background:var(--sky);color:#fff;font-weight:700;font-size:.88rem;padding:12px;border-radius:10px;text-decoration:none;transition:all .2s;}
+.btn-register:hover{background:var(--sky-lt);transform:translateY(-1px);}
+.btn-register-orange{background:var(--orange);}
+.btn-register-orange:hover{background:var(--orange-lt);}
+
+/* SCHEDULE */
+.schedule-sec{background:var(--off);}
+.schedule-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;margin-top:40px;}
+.schedule-card{background:var(--white);border:1.5px solid var(--border);border-radius:16px;padding:24px;}
+.schedule-card h4{font-size:.9rem;font-weight:700;color:var(--dark);margin-bottom:4px;}
+.schedule-card .time{font-size:.78rem;color:var(--sky);font-weight:600;margin-bottom:10px;}
+.schedule-card p{font-size:.8rem;color:var(--gray);line-height:1.7;}
+
+/* SCORE TABLE */
+.score-table{width:100%;border-collapse:collapse;margin-top:32px;border-radius:14px;overflow:hidden;box-shadow:0 4px 20px rgba(21,151,187,.08);}
+.score-table th{background:var(--sky);color:#fff;font-size:.78rem;font-weight:700;padding:14px 18px;text-align:left;letter-spacing:.04em;}
+.score-table td{padding:13px 18px;font-size:.84rem;color:var(--gray);border-bottom:1px solid var(--border);}
+.score-table tr:last-child td{border-bottom:none;}
+.score-table tr:hover td{background:var(--sky-pale);}
+.score-tag{display:inline-block;padding:3px 10px;border-radius:6px;font-size:.72rem;font-weight:700;}
+
+/* CTA */
+.cta-strip{background:linear-gradient(135deg,var(--sky-dk),var(--sky),var(--sky-lt));padding:80px 0;text-align:center;}
+.cta-strip h2{font-family:'Lora',serif;font-size:clamp(1.8rem,3vw,2.6rem);color:#fff;font-weight:700;margin-bottom:12px;}
+.cta-strip p{color:rgba(255,255,255,.72);font-size:.95rem;max-width:480px;margin:0 auto 32px;}
+.cta-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;}
+.btn-white{background:#fff;color:var(--sky-dk);font-weight:700;font-size:.92rem;padding:13px 30px;border-radius:10px;text-decoration:none;display:inline-block;}
+.btn-outline-white{color:#fff;font-weight:600;font-size:.92rem;padding:13px 30px;border-radius:10px;border:1.5px solid rgba(255,255,255,.4);background:rgba(255,255,255,.08);text-decoration:none;display:inline-block;}
+
+/* FOOTER */
+footer{background:var(--dark);color:rgba(255,255,255,.6);}
+.footer-top{padding:64px 0 48px;}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:44px;}
+@media(max-width:768px){.footer-grid{grid-template-columns:1fr 1fr;}}
+.footer-brand p{font-size:.84rem;line-height:1.8;margin-top:14px;max-width:270px;}
+.foot-logo{display:flex;align-items:center;gap:10px;}
+.foot-logo-icon{width:38px;height:38px;background:var(--sky);border-radius:9px;display:grid;place-items:center;}
+.foot-logo-icon svg{width:18px;height:18px;fill:none;stroke:#fff;stroke-width:2.2;}
+.foot-logo-text{font-family:'Lora',serif;font-size:.9rem;font-weight:700;color:#fff;}
+.foot-col h5{font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.85);margin-bottom:16px;}
+.foot-col ul{list-style:none;}
+.foot-col ul li{margin-bottom:9px;}
+.foot-col ul li a{font-size:.82rem;color:rgba(255,255,255,.5);text-decoration:none;}
+.foot-col ul li a:hover{color:var(--sky-lt);}
+.socials{display:flex;gap:9px;margin-top:18px;}
+.socials a{width:34px;height:34px;border-radius:8px;background:rgba(255,255,255,.06);display:grid;place-items:center;color:rgba(255,255,255,.5);text-decoration:none;font-size:.8rem;font-weight:700;}
+.socials a:hover{background:var(--sky);color:#fff;}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.08);padding:20px 0;}
+.foot-bottom-inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;font-size:.75rem;}
+.rev{opacity:0;transform:translateY(26px);transition:opacity .7s,transform .7s;}
+.rev.vis{opacity:1;transform:translateY(0);}
+
+/* ══════════════════════════════════════════
+   HAMBURGER BUTTON
+══════════════════════════════════════════ */
+.hamburger{display:none;flex-direction:column;justify-content:center;gap:5px;
+  width:40px;height:40px;background:none;border:none;cursor:pointer;padding:4px;
+  border-radius:8px;transition:background .2s;}
+.hamburger:hover{background:var(--sky-pale);}
+.hamburger span{display:block;height:2.5px;border-radius:2px;background:var(--dark);
+  transition:transform .3s,opacity .3s,width .3s;}
+.hamburger span:nth-child(2){width:70%;}
+.hamburger.open span:nth-child(1){transform:translateY(7.5px) rotate(45deg);}
+.hamburger.open span:nth-child(2){opacity:0;width:0;}
+.hamburger.open span:nth-child(3){transform:translateY(-7.5px) rotate(-45deg);}
+
+/* ══════════════════════════════════════════
+   MOBILE DRAWER
+══════════════════════════════════════════ */
+.mobile-nav{display:none;flex-direction:column;gap:4px;
+  background:var(--white);padding:16px 20px 20px;
+  border-top:1px solid var(--border);
+  box-shadow:0 8px 24px rgba(21,151,187,.08);}
+.mobile-nav a{font-size:.9rem;font-weight:500;color:var(--dark);
+  padding:10px 14px;border-radius:10px;text-decoration:none;transition:all .2s;}
+.mobile-nav a:hover,.mobile-nav a.act{color:var(--sky);background:var(--sky-pale);}
+.mobile-nav .nav-cta{background:var(--sky)!important;color:#fff!important;
+  text-align:center;margin-top:6px;font-weight:700!important;
+  box-shadow:0 4px 14px rgba(21,151,187,.3);}
+.mobile-nav.open{display:flex;}
+
+/* ══════════════════════════════════════════
+   BREAKPOINT <= 960px (tablet)
+══════════════════════════════════════════ */
+@media(max-width:960px){
+  .topbar .inner{flex-direction:column;align-items:flex-start;gap:4px;padding:8px 16px;}
+  .prog-featured{grid-template-columns:1fr;}
+  .footer-grid{grid-template-columns:1fr 1fr;gap:32px;}
+}
+
+/* ══════════════════════════════════════════
+   BREAKPOINT <= 768px (mobile)
+══════════════════════════════════════════ */
+@media(max-width:768px){
+  section{padding:52px 0;}
+  .nav-menu{display:none;}
+  .hamburger{display:flex;}
+  .topbar{font-size:.7rem;}
+  .top-links{flex-wrap:wrap;gap:10px;}
+  .page-hero{padding:60px 0 44px;}
+  .register-section{padding:40px 0 52px;}
+  .register-grid{grid-template-columns:1fr;}
+  .form-card{padding:24px 18px;}
+  .score-table{font-size:.76rem;}
+  .score-table th,.score-table td{padding:10px 12px;}
+  .cta-btns{flex-direction:column;align-items:center;}
+  .footer-grid{grid-template-columns:1fr;}
+  .footer-top{padding:36px 0 28px;}
+  .footer-brand p{max-width:100%;}
+  .foot-bottom-inner{flex-direction:column;text-align:center;gap:6px;}
+}
+
+/* ══════════════════════════════════════════
+   BREAKPOINT <= 480px (small phone)
+══════════════════════════════════════════ */
+@media(max-width:480px){
+  .topbar .inner>span:first-child{display:none;}
+  .nav-inner{height:58px;}
+  .logo-words .bottom{font-size:.88rem;}
+  .page-hero h1{font-size:clamp(1.7rem,8vw,2.2rem);}
+  .heading{font-size:1.5rem;}
+  .sub-copy{font-size:.85rem;}
+  .exam-grid{grid-template-columns:1fr;}
+  .prog-grid{grid-template-columns:1fr;}
+  .schedule-grid{grid-template-columns:1fr;}
+  .steps-grid{grid-template-columns:1fr;}
+  .form-row{grid-template-columns:1fr;}
+  .program-chips{gap:6px;}
+  .program-chip{font-size:.72rem;padding:6px 10px;}
+  .score-table{display:block;overflow-x:auto;-webkit-overflow-scrolling:touch;}
+  .sidebar-info{display:none;}
+}
+
+</style>
+</head>
+<body>
+
+<div class="topbar"><div class="inner">
+  <span>🎓 Lakireddy Bali Reddy College of Engineering (LBRCE), Mylavaram, Andhra Pradesh</span>
+  <div class="top-links"><span>✉ <a href="mailto:international@lbrce.ac.in">international@lbrce.ac.in</a></span><span>📞 <a href="tel:+918645220002">+91 86452 20002</a></span></div>
+</div></div>
+
+<nav id="mainNav">
+  <div class="nav-inner">
+    <a href="index.html" class="logo">
+      <div class="logo-mark"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg></div>
+      <div class="logo-words"><div class="top">LBRCE</div><div class="bottom">International Cell</div></div>
+    </a>
+    <nav class="nav-menu">
+      <a href="index.html">Home</a>
+      <a href="programs.html">Programs</a>
+      <a href="test-prep.html" class="act">Test Prep</a>
+      <a href="about.html">About</a>
+      <a href="faq.html">FAQ</a>
+      <a href="register.html" class="nav-cta">Register Now</a>
+    </nav>
+
+    <!-- Hamburger (mobile only) -->
+    <button class="hamburger" id="hamburgerBtn" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <!-- Mobile drawer -->
+  <div class="mobile-nav" id="mobileNav">
+    <a href="index.html">Home</a>
+    <a href="programs.html">Programs</a>
+    <a href="test-prep.html" class="act">Test Prep</a>
+    <a href="about.html">About</a>
+    <a href="faq.html">FAQ</a>
+    <a href="register.html" class="nav-cta">Register Now</a>
+  </div>
+</nav>
+
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <div class="pill">✦ &nbsp;Test Prep</div>
+    <h1>Ace Every Exam.<br/><em>Completely Free.</em></h1>
+    <p>IELTS, TOEFL, GRE, GMAT — our certified trainers and proven curriculum help LBRCE students hit their target scores and unlock global universities.</p>
+    <div class="breadcrumb"><a href="index.html">Home</a><span>/</span><span>Test Prep</span></div>
+  </div>
+</div>
+
+<!-- EXAM PROGRAMS -->
+<section>
+  <div class="max">
+    <div class="label rev">Free Coaching Programs</div>
+    <h2 class="heading rev">All Exams. <span>One Destination.</span></h2>
+    <p class="sub-copy rev">Every program below is free for enrolled LBRCE students. Register to reserve your seat — batches fill up fast.</p>
+    <div class="exam-grid">
+
+      <!-- IELTS -->
+      <div class="exam-card rev">
+        <div class="exam-thumb" style="background:linear-gradient(135deg,#0d3a5c,#1597bb);">
+          <div class="exam-thumb-overlay" style="background:linear-gradient(180deg,transparent 40%,rgba(0,0,0,.5))"></div>
+          <span class="exam-badge badge-blue" style="position:relative;z-index:1;">Most Popular</span>
+        </div>
+        <div class="exam-body">
+          <h3>IELTS Coaching</h3>
+          <p>Comprehensive 8-week program covering all four modules with certified British Council-trained instructors and 12 full mock tests.</p>
+          <div class="exam-meta">
+            <div class="exam-meta-item">📅 8 Weeks</div>
+            <div class="exam-meta-item">📝 12 Mock Tests</div>
+            <div class="exam-meta-item">🆓 Free</div>
+          </div>
+          <ul class="exam-highlights">
+            <li>Listening, Reading, Writing & Speaking modules</li>
+            <li>One-on-one speaking practice with trainers</li>
+            <li>Target Band 7.0+ strategy sessions</li>
+            <li>Personalised feedback on writing tasks</li>
+          </ul>
+          <a href="register.html?program=ielts" class="btn-register">Register for IELTS →</a>
+        </div>
+      </div>
+
+      <!-- TOEFL -->
+      <div class="exam-card rev">
+        <div class="exam-thumb" style="background:linear-gradient(135deg,#1a0a28,#6c3fc5);">
+          <div class="exam-thumb-overlay" style="background:linear-gradient(180deg,transparent 40%,rgba(0,0,0,.5))"></div>
+          <span class="exam-badge badge-purple" style="position:relative;z-index:1;">USA & Canada</span>
+        </div>
+        <div class="exam-body">
+          <h3>TOEFL iBT Prep</h3>
+          <p>6-week intensive TOEFL program tailored for students targeting US & Canadian universities. Focus on integrated tasks and Academic English.</p>
+          <div class="exam-meta">
+            <div class="exam-meta-item">📅 6 Weeks</div>
+            <div class="exam-meta-item">📝 8 Mock Tests</div>
+            <div class="exam-meta-item">🆓 Free</div>
+          </div>
+          <ul class="exam-highlights">
+            <li>Reading, Listening, Speaking & Writing sections</li>
+            <li>Integrated task strategies & templates</li>
+            <li>Target Score 100+ coaching plan</li>
+            <li>ETS-style full-length practice tests</li>
+          </ul>
+          <a href="register.html?program=toefl" class="btn-register" style="background:#6c3fc5;">Register for TOEFL →</a>
+        </div>
+      </div>
+
+      <!-- GRE -->
+      <div class="exam-card rev">
+        <div class="exam-thumb" style="background:linear-gradient(135deg,#0a1c0a,#1a8c4e);">
+          <div class="exam-thumb-overlay" style="background:linear-gradient(180deg,transparent 40%,rgba(0,0,0,.5))"></div>
+          <span class="exam-badge badge-green" style="position:relative;z-index:1;">MS / PhD</span>
+        </div>
+        <div class="exam-body">
+          <h3>GRE General Test Prep</h3>
+          <p>Structured 8-week program for students targeting MS and PhD programs abroad. Covers Verbal, Quantitative, and Analytical Writing.</p>
+          <div class="exam-meta">
+            <div class="exam-meta-item">📅 8 Weeks</div>
+            <div class="exam-meta-item">📝 6 Mock Tests</div>
+            <div class="exam-meta-item">🆓 Free</div>
+          </div>
+          <ul class="exam-highlights">
+            <li>Verbal Reasoning – Vocabulary & Reading</li>
+            <li>Quant – Algebra, Data Analysis, Geometry</li>
+            <li>AWA templates & scored essay practice</li>
+            <li>Target Score 320+ prep plan</li>
+          </ul>
+          <a href="register.html?program=gre" class="btn-register" style="background:#1a8c4e;">Register for GRE →</a>
+        </div>
+      </div>
+
+      <!-- GMAT -->
+      <div class="exam-card rev">
+        <div class="exam-thumb" style="background:linear-gradient(135deg,#2a1500,#f79236);">
+          <div class="exam-thumb-overlay" style="background:linear-gradient(180deg,transparent 40%,rgba(0,0,0,.5))"></div>
+          <span class="exam-badge badge-orange" style="position:relative;z-index:1;">MBA Programs</span>
+        </div>
+        <div class="exam-body">
+          <h3>GMAT Focus Edition Prep</h3>
+          <p>Targeted GMAT coaching for MBA aspirants. Master Quantitative Reasoning, Verbal Reasoning, and Data Insights with expert-led sessions.</p>
+          <div class="exam-meta">
+            <div class="exam-meta-item">📅 6 Weeks</div>
+            <div class="exam-meta-item">📝 5 Mock Tests</div>
+            <div class="exam-meta-item">🆓 Free</div>
+          </div>
+          <ul class="exam-highlights">
+            <li>Quantitative Reasoning — Problem Solving</li>
+            <li>Verbal Reasoning — Critical Reasoning focus</li>
+            <li>Data Insights — Tables, Graphs & MSR</li>
+            <li>Target Score 650+ game plan</li>
+          </ul>
+          <a href="register.html?program=gmat" class="btn-register btn-register-orange">Register for GMAT →</a>
+        </div>
+      </div>
+
+      <!-- SAT -->
+      <div class="exam-card rev">
+        <div class="exam-thumb" style="background:linear-gradient(135deg,#1a0a28,#c53f3f);">
+          <div class="exam-thumb-overlay" style="background:linear-gradient(180deg,transparent 40%,rgba(0,0,0,.5))"></div>
+          <span class="exam-badge badge-red" style="position:relative;z-index:1;">Undergrad Abroad</span>
+        </div>
+        <div class="exam-body">
+          <h3>SAT / Digital SAT Prep</h3>
+          <p>For students pursuing undergraduate degrees at US universities. Covers Digital SAT format with Reading & Writing and Math modules.</p>
+          <div class="exam-meta">
+            <div class="exam-meta-item">📅 8 Weeks</div>
+            <div class="exam-meta-item">📝 6 Mock Tests</div>
+            <div class="exam-meta-item">🆓 Free</div>
+          </div>
+          <ul class="exam-highlights">
+            <li>Digital SAT adaptive test format practice</li>
+            <li>Advanced Math — Algebra & Geometry</li>
+            <li>Reading & Writing — Craft and Structure</li>
+            <li>Target Score 1400+ roadmap</li>
+          </ul>
+          <a href="register.html?program=sat" class="btn-register" style="background:#c53f3f;">Register for SAT →</a>
+        </div>
+      </div>
+
+      <!-- Duolingo -->
+      <div class="exam-card rev">
+        <div class="exam-thumb" style="background:linear-gradient(135deg,#0a2a1a,#1a8c4e);">
+          <div class="exam-thumb-overlay" style="background:linear-gradient(180deg,transparent 40%,rgba(0,0,0,.5))"></div>
+          <span class="exam-badge badge-green" style="position:relative;z-index:1;">Quick & Easy</span>
+        </div>
+        <div class="exam-body">
+          <h3>Duolingo English Test Prep</h3>
+          <p>A 3-week crash course for the Duolingo English Test — accepted by 4,000+ universities as a flexible alternative to IELTS and TOEFL.</p>
+          <div class="exam-meta">
+            <div class="exam-meta-item">📅 3 Weeks</div>
+            <div class="exam-meta-item">📝 4 Mock Tests</div>
+            <div class="exam-meta-item">🆓 Free</div>
+          </div>
+          <ul class="exam-highlights">
+            <li>Literacy, Comprehension, Conversation & Production</li>
+            <li>Adaptive test format familiarisation</li>
+            <li>Target Score 115+ strategy guide</li>
+            <li>Quick turnaround — results in 48 hours</li>
+          </ul>
+          <a href="register.html?program=duolingo" class="btn-register" style="background:#1a8c4e;">Register for DET →</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- SCHEDULE -->
+<section class="schedule-sec">
+  <div class="max">
+    <div class="label rev">Batch Schedule</div>
+    <h2 class="heading rev">Upcoming <span>Coaching Batches</span></h2>
+    <div class="schedule-grid">
+      <div class="schedule-card rev"><h4>IELTS — Morning Batch</h4><div class="time">Mon · Wed · Fri &nbsp;|&nbsp; 7:00 – 8:30 AM</div><p>Starting 15 July 2025. 30 seats available. Register early to secure your spot.</p></div>
+      <div class="schedule-card rev"><h4>IELTS — Evening Batch</h4><div class="time">Tue · Thu · Sat &nbsp;|&nbsp; 5:00 – 6:30 PM</div><p>Starting 20 July 2025. Ideal for students with afternoon labs.</p></div>
+      <div class="schedule-card rev"><h4>GRE Prep</h4><div class="time">Mon · Wed · Fri &nbsp;|&nbsp; 5:00 – 6:30 PM</div><p>Starting 1 August 2025. For final-year students targeting Fall 2026 intake.</p></div>
+      <div class="schedule-card rev"><h4>TOEFL Prep</h4><div class="time">Tue · Thu &nbsp;|&nbsp; 6:30 – 8:00 PM</div><p>Starting 5 August 2025. US & Canada intake focus. 20 seats only.</p></div>
+      <div class="schedule-card rev"><h4>GMAT Focus</h4><div class="time">Sat · Sun &nbsp;|&nbsp; 9:00 AM – 12:00 PM</div><p>Starting 10 August 2025. Weekend intensive for final-year students.</p></div>
+      <div class="schedule-card rev"><h4>DET Crash Course</h4><div class="time">Mon–Fri &nbsp;|&nbsp; 8:00 – 9:00 AM</div><p>Rolling enrollment — 3-week course starts every month. 15 seats per batch.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- SCORE REQUIREMENTS -->
+<section>
+  <div class="max">
+    <div class="label rev">Score Requirements</div>
+    <h2 class="heading rev">Target Scores by <span>Destination</span></h2>
+    <p class="sub-copy rev">Use this as a reference when choosing your target exam and score. Our counsellors provide personalised guidance based on your profile.</p>
+    <table class="score-table rev">
+      <thead><tr><th>Country</th><th>IELTS (min)</th><th>TOEFL iBT (min)</th><th>GRE (avg)</th><th>Notes</th></tr></thead>
+      <tbody>
+        <tr><td>🇺🇸 USA</td><td>6.5 overall</td><td>80–100</td><td>310–320</td><td>Top schools require 7.0+ IELTS</td></tr>
+        <tr><td>🇨🇦 Canada</td><td>6.5 overall</td><td>86+</td><td>310+</td><td>Each band ≥6.0</td></tr>
+        <tr><td>🇬🇧 UK</td><td>6.0 – 7.0</td><td>72–95</td><td>Not required</td><td>Oxbridge: 7.5+ IELTS</td></tr>
+        <tr><td>🇦🇺 Australia</td><td>6.5 overall</td><td>79+</td><td>Not required</td><td>Each band ≥6.0</td></tr>
+        <tr><td>🇩🇪 Germany</td><td>6.0+</td><td>80+</td><td>300+ (for MS)</td><td>Many TU9 schools accept 6.0</td></tr>
+        <tr><td>🇮🇪 Ireland</td><td>6.0 – 6.5</td><td>79+</td><td>Not required</td><td>PG: 6.5 recommended</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<div class="cta-strip">
+  <div class="max">
+    <h2>Start Your Test Prep Today — Free</h2>
+    <p>Register now to join the next batch. All programs are 100% free for LBRCE students. Limited seats per batch.</p>
+    <div class="cta-btns"><a href="register.html" class="btn-white">📋 Register Now</a><a href="faq.html" class="btn-outline-white">❓ Read FAQs</a></div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-top"><div class="max"><div class="footer-grid">
+    <div class="footer-brand"><div class="foot-logo"><div class="foot-logo-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg></div><div class="foot-logo-text">LBRCE International Cell</div></div><p>Empowering students with global education opportunities and end-to-end guidance.</p><div class="socials"><a href="#">in</a><a href="#">fb</a><a href="#">yt</a><a href="#">ig</a></div></div>
+    <div class="foot-col"><h5>Pages</h5><ul><li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="programs.html">Programs</a></li><li><a href="test-prep.html">Test Prep</a></li><li><a href="faq.html">FAQ</a></li></ul></div>
+    <div class="foot-col"><h5>Test Exams</h5><ul><li><a href="register.html?program=ielts">IELTS</a></li><li><a href="register.html?program=toefl">TOEFL</a></li><li><a href="register.html?program=gre">GRE</a></li><li><a href="register.html?program=gmat">GMAT</a></li><li><a href="register.html?program=sat">SAT</a></li></ul></div>
+    <div class="foot-col"><h5>Contact</h5><ul><li><a href="#">LBRCE Campus, Mylavaram</a></li><li><a href="tel:+918645220002">+91 86452 20002</a></li><li><a href="mailto:international@lbrce.ac.in">international@lbrce.ac.in</a></li></ul></div>
+  </div></div></div>
+  <div class="footer-bottom"><div class="max foot-bottom-inner"><span>© 2025 LBRCE International Cell. All rights reserved.</span><span>Lakireddy Bali Reddy College of Engineering, Mylavaram, AP</span></div></div>
+</footer>
+
+<script>
+const nav = document.getElementById('mainNav');
+window.addEventListener('scroll', () => nav.classList.toggle('elevated', scrollY > 60));
+const revItems = document.querySelectorAll('.rev');
+const io = new IntersectionObserver(e => e.forEach(x => { if(x.isIntersecting){x.target.classList.add('vis');io.unobserve(x.target);}}),{threshold:0.1});
+revItems.forEach(el => io.observe(el));
+
+// ── Hamburger menu
+const hamburgerBtn = document.getElementById('hamburgerBtn');
+const mobileNav    = document.getElementById('mobileNav');
+hamburgerBtn.addEventListener('click', () => {
+  const isOpen = mobileNav.classList.toggle('open');
+  hamburgerBtn.classList.toggle('open', isOpen);
+  hamburgerBtn.setAttribute('aria-expanded', isOpen);
+});
+mobileNav.querySelectorAll('a').forEach(link => {
+  link.addEventListener('click', () => {
+    mobileNav.classList.remove('open');
+    hamburgerBtn.classList.remove('open');
+    hamburgerBtn.setAttribute('aria-expanded', 'false');
+  });
+});
+
+</script>
+</body>
+</html>
