@@ -31,8 +31,19 @@ nav.elevated{box-shadow:0 4px 24px rgba(21,151,187,.15);}
 .nav-menu a:hover,.nav-menu a.act{color:var(--sky);background:var(--sky-pale);}
 .nav-cta{background:var(--sky)!important;color:#fff!important;border-radius:10px!important;padding:9px 22px!important;font-weight:600!important;}
 
-/* HERO */
-.page-hero{background:linear-gradient(135deg,#1a0a28,#2a0d50,#1597bb);padding:96px 0 80px;position:relative;overflow:hidden;}
+/* HERO 
+.page-hero{background:linear-gradient(135deg,#1a0a28,#2a0d50,#1597bb);padding:96px 0 80px;position:relative;overflow:hidden;}*/
+.page-hero{
+    background:
+      linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
+      url('static/bg14.png');
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+    padding:96px 0 80px;
+    position: relative;
+    overflow:hidden;
+}
 .page-hero::before{content:'';position:absolute;inset:0;background-image:radial-gradient(circle,rgba(255,255,255,.05) 1px,transparent 1px);background-size:32px 32px;}
 .page-hero-inner{max-width:1240px;margin:auto;padding:0 24px;position:relative;z-index:2;}
 .page-hero .pill{display:inline-flex;align-items:center;background:rgba(21,151,187,.2);border:1px solid rgba(21,151,187,.4);color:var(--sky-lt);font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:6px 16px;border-radius:100px;margin-bottom:18px;}
@@ -212,7 +223,7 @@ footer{background:var(--dark);color:rgba(255,255,255,.6);}
 
 <div class="topbar"><div class="inner">
   <span>🎓 Lakireddy Bali Reddy College of Engineering (LBRCE), Mylavaram, Andhra Pradesh</span>
-  <div class="top-links"><span>✉ <a href="mailto:international@lbrce.ac.in">international@lbrce.ac.in</a></span><span>📞 <a href="tel:+918645220002">+91 86452 20002</a></span></div>
+  <div class="top-links"><span>✉ <a href="mailto:icell@lbrce.ac.in">icell@lbrce.ac.in</a></span><span>📞 <a href="tel:+919952949948">+91 9952949948</a></span></div>
 </div></div>
 
 <nav id="mainNav">
@@ -263,7 +274,7 @@ footer{background:var(--dark);color:rgba(255,255,255,.6);}
     <div class="prog-featured">
       <!-- University Explore -->
       <div class="prog-hero-card rev">
-        <div class="prog-hero-bg" style="background-image:url('https://images.unsplash.com/photo-1562774053-701939374585?w=800&q=80');"></div>
+        <div class="prog-hero-bg" style="background-image:url('static/bg4.png');"></div>
         <div class="prog-hero-overlay"></div>
         <div class="prog-hero-content">
           <span class="prog-hero-badge badge-blue">🌍 University Explore</span>
@@ -274,7 +285,7 @@ footer{background:var(--dark);color:rgba(255,255,255,.6);}
       </div>
       <!-- IELTS -->
       <div class="prog-hero-card rev">
-        <div class="prog-hero-bg" style="background-image:url('https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=800&q=80');"></div>
+        <div class="prog-hero-bg" style="background-image:url('static/bg10.png');"></div>
         <div class="prog-hero-overlay"></div>
         <div class="prog-hero-content">
           <span class="prog-hero-badge badge-orange">✏️ IELTS Free Coaching</span>
@@ -291,25 +302,25 @@ footer{background:var(--dark);color:rgba(255,255,255,.6);}
 <section style="background:var(--off);padding-top:0;padding-bottom:80px;">
   <div class="max">
     <div class="label rev">All Programs</div>
-    <h2 class="heading rev">Every Service, <span>No Cost</span></h2>
+    <!--<h2 class="heading rev">Every Service, <span>No Cost</span></h2>-->
     <p class="sub-copy rev">All programs below are free and exclusively available to LBRCE students. Click "Register" on any card to enrol.</p>
     <div class="prog-grid">
 
       <div class="prog-card rev">
-        <div class="prog-thumb" style="background-image:url('https://images.unsplash.com/photo-1573164574572-cb89e39749b4?w=700&q=80');">
+        <div class="prog-thumb" style="background-image:url('static/bg11.png');">
           <span class="prog-badge badge-blue">Passport Assistance</span>
         </div>
         <div class="prog-body">
           <h3>Passport support Initiative</h3>
-<p>The Passport Assistance Mela was organized to support students in completing essential passport-related procedures and documentation required for international education opportunities. The initiative helped students gain clarity on the application process and overseas readiness requirements.</p>       
-   <div class="prog-meta"><span class="prog-meta-item">📅 4-week program</span></div>
+         <p>The Passport Assistance Mela was organized to support students in completing essential passport-related procedures and documentation required for international education opportunities. The initiative helped students gain clarity on the application process and overseas readiness requirements.</p>       
+          <div class="prog-meta"><span class="prog-meta-item">📅 2 days program</span></div>
           <ul class="prog-features"><li>Student Facilitation Program</li><li>International Mobility Support</li><li>Documentation Awareness</li></ul>
           <a href="pdf/pdf1.pdf" class="btn-register-prog">View Details →</a>
         </div>
       </div>
 
       <div class="prog-card rev">
-        <div class="prog-thumb" style="background-image:url('https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=700&q=80');">
+        <div class="prog-thumb" style="background-image:url('static/bg15.png');">
           <span class="prog-badge badge-orange">IELTS Masterclass</span>
         </div>
         <div class="prog-body">
@@ -322,39 +333,39 @@ footer{background:var(--dark);color:rgba(255,255,255,.6);}
       </div>
 
       <div class="prog-card rev">
-        <div class="prog-thumb" style="background-image:url('https://images.unsplash.com/photo-1506973035872-a4ec16b8e8d9?w=700&q=80');">
+        <div class="prog-thumb" style="background-image:url('static/bg16.png');">
           <span class="prog-badge badge-green">Global Pathways</span>
         </div>
         <div class="prog-body">
           <h3>Global University Connect</h3>
           <p>Global University Connect served as a platform for students to engage with representatives from international universities and gain insights into higher education opportunities abroad. The program encouraged informed decision-making regarding academic pathways and global careers..</p>
- <div class="prog-meta"><span class="prog-meta-item">📅 4-week program</span></div>
+ <div class="prog-meta"><span class="prog-meta-item">📅 1 day program</span></div>
           <ul class="prog-features"><li>International University Engagement</li><li>Higher Education Awareness</li><li>Academic Opportunity Exploration</li></ul>
           <a href="pdf/pdf1.pdf" class="btn-register-prog" style="background:#1a8c4e;">View Details →</a>
         </div>
       </div>
 
       <div class="prog-card rev">
-        <div class="prog-thumb" style="background-image:url('https://images.unsplash.com/photo-1573164574572-cb89e39749b4?w=700&q=80');">
+        <div class="prog-thumb" style="background-image:url('static/bg17.png');">
           <span class="prog-badge badge-purple">Career Connect </span>
         </div>
         <div class="prog-body">
           <h3>Career Pathway Development Program</h3>
           <p>The Career Pathway Development Program was designed to help students explore suitable academic and professional opportunities aligned with their aspirations. Through mentoring and career-focused discussions, participants gained valuable direction for future success..</p>
-           <div class="prog-meta"><span class="prog-meta-item">📅 4-week program</span></div>
+           <div class="prog-meta"><span class="prog-meta-item">📅 1 day program</span></div>
           <ul class="prog-features"><li>Career Exploration Support</li><li>Professional Development Guidance</li><li>Academic Planning Assistance</li></ul>
           <a href="pdf/pdf1.pdf" class="btn-register-prog" style="background:#6c3fc5;">View Details →</a>
         </div>
       </div>
 
       <div class="prog-card rev">
-        <div class="prog-thumb" style="background-image:url('https://images.unsplash.com/photo-1562774053-701939374585?w=700&q=80');">
+        <div class="prog-thumb" style="background-image:url('static/bg18.png');">
           <span class="prog-badge badge-blue">Faculty Forum</span>
         </div>
         <div class="prog-body">
           <h3>International Faculty Interaction Series</h3>
           <p>The International Faculty Interaction Series provided students with an opportunity to learn from distinguished faculty members and academic experts from overseas institutions. The sessions fostered global perspectives and enriched the overall learning experience..</p>
-          <div class="prog-meta"><span class="prog-meta-item">📅 4-week program</span></div>
+          <div class="prog-meta"><span class="prog-meta-item">📅 3 days program</span></div>
           <ul class="prog-features"><li>Global Academic Exposure</li><li>International Expert Sessions</li><li>Cross-Cultural Learning Experience</li></ul>
           <a href="pdf/pdf1.pdf" class="btn-register-prog">View Details → </a>
         </div>
