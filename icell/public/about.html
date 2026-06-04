@@ -32,8 +32,19 @@ nav.elevated{box-shadow:0 4px 24px rgba(21,151,187,.15);}
 .nav-cta{background:var(--sky)!important;color:#fff!important;border-radius:10px!important;padding:9px 22px!important;font-weight:600!important;box-shadow:0 4px 14px rgba(21,151,187,.35);}
 .nav-cta:hover{background:var(--sky-lt)!important;}
 
-/* PAGE HERO */
-.page-hero{background:linear-gradient(135deg,#0a1628 0%,#0d3a5c 50%,#0d6e85 100%);padding:96px 0 80px;position:relative;overflow:hidden;}
+/* PAGE HERO 
+.page-hero{background:linear-gradient(135deg,#0a1628 0%,#0d3a5c 50%,#0d6e85 100%);padding:96px 0 80px;position:relative;overflow:hidden;}*/
+.page-hero{
+    background:
+      linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
+      url('static/bg28.png');
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+    padding:96px 0 80px;
+    position: relative;
+    overflow:hidden;
+}
 .page-hero::before{content:'';position:absolute;inset:0;background-image:radial-gradient(circle,rgba(255,255,255,.05) 1px,transparent 1px);background-size:32px 32px;}
 .page-hero-inner{max-width:1240px;margin:auto;padding:0 24px;position:relative;z-index:2;}
 .page-hero .pill{display:inline-flex;align-items:center;gap:8px;background:rgba(21,151,187,.2);border:1px solid rgba(21,151,187,.4);color:var(--sky-lt);font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:6px 16px;border-radius:100px;margin-bottom:18px;}
@@ -57,7 +68,7 @@ section{padding:80px 0;}
 .mission-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;margin-top:48px;}
 @media(max-width:768px){.mission-grid{grid-template-columns:1fr;}}
 .mission-img{border-radius:20px;overflow:hidden;height:380px;position:relative;}
-.mission-img-inner{position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=800&q=80') center/cover;}
+.mission-img-inner{position:absolute;inset:0;background:url('static/bg29.png') center/cover;}
 .mission-img-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(13,110,133,.4),rgba(21,151,187,.2));}
 .mission-badge{position:absolute;bottom:20px;left:20px;background:rgba(255,255,255,.95);border-radius:14px;padding:14px 18px;display:flex;align-items:center;gap:10px;box-shadow:0 8px 24px rgba(0,0,0,.15);}
 .mission-badge .icon{font-size:1.4rem;}
@@ -69,13 +80,13 @@ section{padding:80px 0;}
 .mp-text h4{font-size:.9rem;font-weight:700;color:var(--dark);margin-bottom:4px;}
 .mp-text p{font-size:.82rem;color:var(--gray);line-height:1.7;}
 
-/* STATS */
+/* STATS 
 .stats-sec{background:linear-gradient(135deg,var(--sky-dk),var(--sky));padding:64px 0;}
 .stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:32px;text-align:center;}
 @media(max-width:700px){.stats-grid{grid-template-columns:1fr 1fr;}}
 .stat-box .n{font-family:'Lora',serif;font-size:2.6rem;font-weight:700;color:#fff;line-height:1;}
 .stat-box .l{font-size:.78rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.6);margin-top:6px;}
-
+*/
 /* TEAM */
 .team-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:22px;margin-top:48px;}
 .team-card{background:var(--white);border:1.5px solid var(--border);border-radius:18px;padding:28px;text-align:center;transition:all .3s;}
@@ -228,8 +239,8 @@ footer{background:var(--dark);color:rgba(255,255,255,.6);}
   <div class="inner">
     <span>🎓 Lakireddy Bali Reddy College of Engineering (LBRCE), Mylavaram, Andhra Pradesh</span>
     <div class="top-links">
-      <span>✉ <a href="mailto:international@lbrce.ac.in">international@lbrce.ac.in</a></span>
-      <span>📞 <a href="tel:+918645220002">+91 86452 20002</a></span>
+      <span>✉ <a href="mailto:icell@lbrce.ac.in">icell@lbrce.ac.in</a></span>
+      <span>📞 <a href="tel:+919952949948">+91 9952949948</a></span>
     </div>
   </div>
 </div>
@@ -283,7 +294,7 @@ footer{background:var(--dark);color:rgba(255,255,255,.6);}
       <div class="mission-img rev">
         <div class="mission-img-inner"></div>
         <div class="mission-img-overlay"></div>
-        <div class="mission-badge"><div class="icon">🎓</div><div><strong>Est. 2018</strong><span>6 years of global guidance</span></div></div>
+        
       </div>
       <div class="rev">
         <div class="label">Our Mission</div>
@@ -308,7 +319,7 @@ footer{background:var(--dark);color:rgba(255,255,255,.6);}
   </div>
 </section>
 
-<!-- STATS -->
+<!-- STATS 
 <div class="stats-sec">
   <div class="max">
     <div class="stats-grid">
@@ -318,7 +329,7 @@ footer{background:var(--dark);color:rgba(255,255,255,.6);}
       <div class="stat-box rev"><div class="n">15+</div><div class="l">Countries Covered</div></div>
     </div>
   </div>
-</div>
+</div> -->
 
 <!-- TEAM -->
 <section>
@@ -328,28 +339,22 @@ footer{background:var(--dark);color:rgba(255,255,255,.6);}
     <div class="team-grid">
       <div class="team-card rev">
         <div class="team-avatar">👩‍💼</div>
-        <h4>Dr. Padma Lakshmi</h4>
-        <div class="role">Director, International Cell</div>
-        <p>15+ years in international education consulting. Former Fulbright Scholar and IELTS Band 9 achiever.</p>
+        <h4>Dr.K.Appa Rao</h4>
+        <div class="role"> Principal</div>
       </div>
       <div class="team-card rev">
         <div class="team-avatar">👨‍🏫</div>
-        <h4>Mr. Ravi Shankar</h4>
-        <div class="role">Senior Counsellor</div>
-        <p>Specializes in US & Canada admissions. Guided 200+ students to Ivy League and top-ranked institutions.</p>
+        <h4>Dr.V.Suryanarayana</h4>
+        <div class="role">Dean of IR</div>
+        
       </div>
       <div class="team-card rev">
         <div class="team-avatar">👩‍🎓</div>
-        <h4>Ms. Ananya Reddy</h4>
-        <div class="role">IELTS & TOEFL Trainer</div>
-        <p>Certified British Council trainer with an average student improvement of 1.5 bands per 8-week session.</p>
+        <h4>Dr.L.Prabhu</h4>
+        <div class="role">ICell Coordinator</div>
+        <p>British council certified counsellor .</p>
       </div>
-      <div class="team-card rev">
-        <div class="team-avatar">👨‍💻</div>
-        <h4>Mr. Kiran Babu</h4>
-        <div class="role">Visa & Documentation Specialist</div>
-        <p>Expert in visa applications for 12+ countries. 98% approval rate across 300+ processed applications.</p>
-      </div>
+      
     </div>
   </div>
 </section>
