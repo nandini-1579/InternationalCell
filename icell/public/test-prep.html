@@ -31,8 +31,19 @@ nav.elevated{box-shadow:0 4px 24px rgba(21,151,187,.15);}
 .nav-menu a:hover,.nav-menu a.act{color:var(--sky);background:var(--sky-pale);}
 .nav-cta{background:var(--sky)!important;color:#fff!important;border-radius:10px!important;padding:9px 22px!important;font-weight:600!important;}
 
-/* PAGE HERO */
-.page-hero{background:linear-gradient(135deg,#0a1c0a,#0d3a1a,#1a5c2a);padding:96px 0 80px;position:relative;overflow:hidden;}
+/* PAGE HERO 
+.page-hero{background:linear-gradient(135deg,#0a1c0a,#0d3a1a,#1a5c2a);padding:96px 0 80px;position:relative;overflow:hidden;}*/
+.page-hero{
+    background:
+      linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
+      url('static/bg21.png');
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+    padding:96px 0 80px;
+    position: relative;
+    overflow:hidden;
+}
 .page-hero::before{content:'';position:absolute;inset:0;background-image:radial-gradient(circle,rgba(255,255,255,.05) 1px,transparent 1px);background-size:32px 32px;}
 .page-hero-inner{max-width:1240px;margin:auto;padding:0 24px;position:relative;z-index:2;}
 .page-hero .pill{display:inline-flex;align-items:center;background:rgba(26,140,78,.25);border:1px solid rgba(26,140,78,.4);color:#5ae88a;font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:6px 16px;border-radius:100px;margin-bottom:18px;}
@@ -210,7 +221,7 @@ footer{background:var(--dark);color:rgba(255,255,255,.6);}
 
 <div class="topbar"><div class="inner">
   <span>🎓 Lakireddy Bali Reddy College of Engineering (LBRCE), Mylavaram, Andhra Pradesh</span>
-  <div class="top-links"><span>✉ <a href="mailto:international@lbrce.ac.in">international@lbrce.ac.in</a></span><span>📞 <a href="tel:+918645220002">+91 86452 20002</a></span></div>
+  <div class="top-links"><span>✉ <a href="mailto:icell@lbrce.ac.in">icell@lbrce.ac.in</a></span><span>📞 <a href="tel:+919952949948">+91 9952949948</a></span></div>
 </div></div>
 
 <nav id="mainNav">
@@ -263,7 +274,7 @@ footer{background:var(--dark);color:rgba(255,255,255,.6);}
 
       <!-- IELTS -->
       <div class="exam-card rev">
-        <div class="exam-thumb" style="background:linear-gradient(135deg,#0d3a5c,#1597bb);">
+        <div class="exam-thumb" style="background:url('static/bg22.png') center/cover no-repeat">
           <div class="exam-thumb-overlay" style="background:linear-gradient(180deg,transparent 40%,rgba(0,0,0,.5))"></div>
           <span class="exam-badge badge-blue" style="position:relative;z-index:1;">Most Popular</span>
         </div>
@@ -287,7 +298,7 @@ footer{background:var(--dark);color:rgba(255,255,255,.6);}
 
       <!-- TOEFL -->
       <div class="exam-card rev">
-        <div class="exam-thumb" style="background:linear-gradient(135deg,#1a0a28,#6c3fc5);">
+        <div class="exam-thumb" style="background:url('static/bg23.png') center/cover no-repeat">
           <div class="exam-thumb-overlay" style="background:linear-gradient(180deg,transparent 40%,rgba(0,0,0,.5))"></div>
           <span class="exam-badge badge-purple" style="position:relative;z-index:1;">USA & Canada</span>
         </div>
@@ -311,7 +322,7 @@ footer{background:var(--dark);color:rgba(255,255,255,.6);}
 
       <!-- GRE -->
       <div class="exam-card rev">
-        <div class="exam-thumb" style="background:linear-gradient(135deg,#0a1c0a,#1a8c4e);">
+        <div class="exam-thumb" style="background:url('static/bg24.png') center/cover no-repeat">
           <div class="exam-thumb-overlay" style="background:linear-gradient(180deg,transparent 40%,rgba(0,0,0,.5))"></div>
           <span class="exam-badge badge-green" style="position:relative;z-index:1;">MS / PhD</span>
         </div>
@@ -335,7 +346,7 @@ footer{background:var(--dark);color:rgba(255,255,255,.6);}
 
       <!-- GMAT -->
       <div class="exam-card rev">
-        <div class="exam-thumb" style="background:linear-gradient(135deg,#2a1500,#f79236);">
+        <div class="exam-thumb" style="background:url('static/bg25.png') center/cover no-repeat">
           <div class="exam-thumb-overlay" style="background:linear-gradient(180deg,transparent 40%,rgba(0,0,0,.5))"></div>
           <span class="exam-badge badge-orange" style="position:relative;z-index:1;">MBA Programs</span>
         </div>
@@ -359,7 +370,7 @@ footer{background:var(--dark);color:rgba(255,255,255,.6);}
 
       <!-- SAT -->
       <div class="exam-card rev">
-        <div class="exam-thumb" style="background:linear-gradient(135deg,#1a0a28,#c53f3f);">
+        <div class="exam-thumb" style="background:url('static/bg26.png') center/cover no-repeat">
           <div class="exam-thumb-overlay" style="background:linear-gradient(180deg,transparent 40%,rgba(0,0,0,.5))"></div>
           <span class="exam-badge badge-red" style="position:relative;z-index:1;">Undergrad Abroad</span>
         </div>
@@ -383,7 +394,7 @@ footer{background:var(--dark);color:rgba(255,255,255,.6);}
 
       <!-- Duolingo -->
       <div class="exam-card rev">
-        <div class="exam-thumb" style="background:linear-gradient(135deg,#0a2a1a,#1a8c4e);">
+        <div class="exam-thumb" style="background:url('static/bg27.png') center/cover no-repeat">
           <div class="exam-thumb-overlay" style="background:linear-gradient(180deg,transparent 40%,rgba(0,0,0,.5))"></div>
           <span class="exam-badge badge-green" style="position:relative;z-index:1;">Quick & Easy</span>
         </div>
